@@ -1,0 +1,282 @@
+{
+	"info": {
+		"_postman_id": "6e1d01c4-614e-4bac-942e-409b551d69a0",
+		"name": "Movies",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24313612"
+	},
+	"item": [
+		{
+			"name": "getMovies",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const jsonData = pm.response.json();\r",
+							"\r",
+							"const el = jsonData.map((element) => element.title)\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"There is more than one movie\", () => {\r",
+							"    pm.expect(jsonData).length.greaterThan(1);\r",
+							"});\r",
+							"/**verify that the current dataset movie is in the response */\r",
+							"pm.test(\"Verify the name of the movies\", () => {\r",
+							"    pm.expect(el).to.be.contains(data.title)\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{UrlBase}}/movies",
+					"host": [
+						"{{UrlBase}}"
+					],
+					"path": [
+						"movies"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "getMovies",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{urlBase}}/movies",
+							"host": [
+								"{{urlBase}}"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "3567"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"def-Eo5XvZs8D9+H6VxPrxkHAk8FdgA\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 07 Nov 2022 01:26:47 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"title\": \"Spider-Man: No Way Home\",\n        \"year\": 2021,\n        \"genre\": \"Action\",\n        \"director\": \"Jon Watt\",\n        \"rate\": 5,\n        \"id\": \"3edfee40-7c7a-11ec-8953-3967f4971427\"\n    },\n    {\n        \"title\": \"Interstellar\",\n        \"year\": 2014,\n        \"genre\": \"Fiction\",\n        \"director\": \"Christopher Nolan\",\n        \"rate\": 5,\n        \"id\": \"0b109320-7c7b-11ec-8953-3967f4971427\"\n    },\n    {\n        \"title\": \"The Taking of Pelham 123\",\n        \"year\": 2009,\n        \"genre\": \"Action\",\n        \"director\": \"Tony Scott\",\n        \"rate\": 4.5,\n        \"id\": \"b6538030-7c7b-11ec-8953-3967f4971427\"\n    },\n    {\n        \"title\": \"American Gangster\",\n        \"year\": 2007,\n        \"genre\": \"Drama\",\n        \"director\": \"Ridley Scott\",\n        \"rate\": 4.5,\n        \"id\": \"389a1120-7c7d-11ec-8953-3967f4971427\"\n    },\n    {\n        \"title\": \"The Equalizer\",\n        \"year\": 2014,\n        \"genre\": \"Action\",\n        \"director\": \"Antoine Fuqua\",\n        \"rate\": 4,\n        \"id\": \"61a2c1f0-7c7f-11ec-8953-3967f4971427\"\n    },\n    {\n        \"title\": \"Face/Off\",\n        \"year\": 1997,\n        \"genre\": \"Action\",\n        \"director\": \"John Woo\",\n        \"rate\": 4,\n        \"id\": \"d030c270-7c7f-11ec-8953-3967f4971427\"\n    },\n    {\n        \"title\": \"Gigli\",\n        \"year\": 2003,\n        \"genre\": \"Comedy\",\n        \"director\": \"Martin Brest\",\n        \"rate\": 3,\n        \"id\": \"2c0313a0-7c80-11ec-8953-3967f4971427\"\n    },\n    {\n        \"title\": \"The Room\",\n        \"year\": 2003,\n        \"genre\": \"Drama\",\n        \"director\": \"Tommy Wiseau\",\n        \"rate\": 2,\n        \"id\": \"8b12dc90-7c80-11ec-8953-3967f4971427\"\n    },\n    {\n        \"title\": \"El ángel de la muerte\",\n        \"year\": 2022,\n        \"genre\": \"Drama\",\n        \"director\": \"Tobias Lindholm \",\n        \"rate\": 4.5,\n        \"id\": \"1207ea70-5e1b-11ed-813e-69370173bffc\"\n    },\n    {\n        \"title\": \"El ángel de la muerte\",\n        \"year\": 2022,\n        \"genre\": \"Drama\",\n        \"director\": \"Tobias Lindholm \",\n        \"rate\": 4.5,\n        \"id\": \"3fad6f60-5e32-11ed-a58d-5d462c9f1c1b\"\n    },\n    {\n        \"title\": \"Maa\",\n        \"year\": 2022,\n        \"genre\": \"Drama\",\n        \"director\": \"Tobias Lindholm \",\n        \"rate\": 4.5,\n        \"id\": \"96634fa0-5e32-11ed-a58d-5d462c9f1c1b\"\n    },\n    {\n        \"title\": \"Maa\",\n        \"year\": 2022,\n        \"genre\": \"Drama\",\n        \"director\": \"Tobias Lindholm \",\n        \"rate\": 4.5,\n        \"id\": \"d9bda1a0-5e33-11ed-a58d-5d462c9f1c1b\"\n    },\n    {\n        \"title\": \"Maa\",\n        \"year\": 2022,\n        \"genre\": \"Drama\",\n        \"director\": \"Tobias Lindholm \",\n        \"rate\": 4.5,\n        \"id\": \"17553090-5e35-11ed-a58d-5d462c9f1c1b\"\n    },\n    {\n        \"title\": \"Maa\",\n        \"year\": 2022,\n        \"genre\": \"Drama\",\n        \"director\": \"Tobias Lindholm \",\n        \"rate\": 4.5,\n        \"id\": \"2dc84290-5e35-11ed-a58d-5d462c9f1c1b\"\n    },\n    {\n        \"title\": \"Maa\",\n        \"year\": 2022,\n        \"genre\": \"Drama\",\n        \"director\": \"Tobias Lindholm \",\n        \"rate\": 4.5,\n        \"id\": \"3a66b2c0-5e35-11ed-a58d-5d462c9f1c1b\"\n    },\n    {\n        \"title\": \"Maa\",\n        \"year\": 2022,\n        \"genre\": \"Drama\",\n        \"director\": \"Tobias Lindholm \",\n        \"rate\": 4.5,\n        \"id\": \"61130ef0-5e35-11ed-a58d-5d462c9f1c1b\"\n    },\n    {\n        \"title\": \"Maa\",\n        \"year\": 2022,\n        \"genre\": \"Drama\",\n        \"director\": \"Tobias Lindholm \",\n        \"rate\": 4.5,\n        \"id\": \"95614190-5e35-11ed-a58d-5d462c9f1c1b\"\n    },\n    {\n        \"title\": \"Maa\",\n        \"year\": 2022,\n        \"genre\": \"Drama\",\n        \"director\": \"Tobias Lindholm \",\n        \"rate\": 4.5,\n        \"id\": \"89605470-5e36-11ed-a58d-5d462c9f1c1b\"\n    },\n    {\n        \"title\": \"Maa\",\n        \"year\": 2022,\n        \"genre\": \"Drama\",\n        \"director\": \"Tobias Lindholm \",\n        \"rate\": 4.5,\n        \"id\": \"c42e5890-5e36-11ed-a58d-5d462c9f1c1b\"\n    },\n    {\n        \"title\": \"Maa\",\n        \"year\": 2022,\n        \"genre\": \"Drama\",\n        \"director\": \"Tobias Lindholm \",\n        \"rate\": 4.5,\n        \"id\": \"e4eee5e0-5e36-11ed-a58d-5d462c9f1c1b\"\n    },\n    {\n        \"title\": \"Maa\",\n        \"year\": 2022,\n        \"genre\": \"Drama\",\n        \"director\": \"Tobias Lindholm \",\n        \"rate\": 4.5,\n        \"id\": \"124a12d0-5e37-11ed-a58d-5d462c9f1c1b\"\n    },\n    {\n        \"title\": \"Maa\",\n        \"year\": 2022,\n        \"genre\": \"Drama\",\n        \"director\": \"Tobias Lindholm \",\n        \"rate\": 4.5,\n        \"id\": \"2fa0e840-5e37-11ed-a58d-5d462c9f1c1b\"\n    },\n    {\n        \"title\": \"Maa\",\n        \"year\": 2022,\n        \"genre\": \"Drama\",\n        \"director\": \"Tobias Lindholm \",\n        \"rate\": 4.5,\n        \"id\": \"3d784da0-5e37-11ed-a58d-5d462c9f1c1b\"\n    },\n    {\n        \"title\": \"Maa\",\n        \"year\": 2022,\n        \"genre\": \"Drama\",\n        \"director\": \"Tobias Lindholm \",\n        \"rate\": 4.5,\n        \"id\": \"609d30c0-5e37-11ed-a58d-5d462c9f1c1b\"\n    },\n    {\n        \"title\": \"Maa\",\n        \"year\": 2022,\n        \"genre\": \"Drama\",\n        \"director\": \"Tobias Lindholm \",\n        \"rate\": 4.5,\n        \"id\": \"65d0fa40-5e37-11ed-a58d-5d462c9f1c1b\"\n    },\n    {\n        \"title\": \"Maa\",\n        \"year\": 2022,\n        \"genre\": \"Drama\",\n        \"director\": \"Tobias Lindholm \",\n        \"rate\": 4.5,\n        \"id\": \"1b6692c0-5e38-11ed-a58d-5d462c9f1c1b\"\n    },\n    {\n        \"title\": \"Maa\",\n        \"year\": 2022,\n        \"genre\": \"Drama\",\n        \"director\": \"Tobias Lindholm \",\n        \"rate\": 4.5,\n        \"id\": \"cda0b950-5e3a-11ed-a58d-5d462c9f1c1b\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "getMovieId",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"jsonData = pm.response.json();\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"identifier of the response matches the parameter\", function () {\r",
+							"  pm.expect(jsonData.id).to.be.equal(jsonData.id);\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const keys = Object.keys(data);\r",
+							"keys.map(element=>{\r",
+							"    pm.environment.set(element, data[element])\r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{urlBase}}/movies/:id",
+					"host": [
+						"{{urlBase}}"
+					],
+					"path": [
+						"movies",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "{{id}}"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "getMovieId",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{urlBase}}/movies/:id",
+							"host": [
+								"{{urlBase}}"
+							],
+							"path": [
+								"movies",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "b6538030-7c7b-11ec-8953-3967f4971427"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "144"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"90-CMe9vW0of68EvG+QD3fwYtrTO+4\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 07 Nov 2022 01:27:08 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"title\": \"The Taking of Pelham 123\",\n    \"year\": 2009,\n    \"genre\": \"Action\",\n    \"director\": \"Tony Scott\",\n    \"rate\": 4.5,\n    \"id\": \"b6538030-7c7b-11ec-8953-3967f4971427\"\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "urlBase",
+			"value": "http://localhost:3002/api"
+		},
+		{
+			"key": "token1",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImVtYWlsIjoiYWlseW5kcGFAZ21haWwuY29tIiwicGFzc3dvcmQiOiIxMjM0In0sImlhdCI6MTY2Nzc4MDUxNCwiZXhwIjoxNjY3Nzg3NzE0fQ.qzVV067a01AyDE-KXGfk-xX-Ajn-G9N31Th1Srwa4bY",
+			"type": "string"
+		},
+		{
+			"key": "idMovie",
+			"value": "4978c890-5e15-11ed-a86b-15f7bc5f9ab4",
+			"type": "string"
+		},
+		{
+			"key": "usser",
+			"value": "ailyndpa@gmail.com",
+			"type": "string"
+		},
+		{
+			"key": "pass",
+			"value": "1234",
+			"type": "string"
+		},
+		{
+			"key": "title",
+			"value": "Prueba 1"
+		},
+		{
+			"key": "year",
+			"value": "1996"
+		},
+		{
+			"key": "genre",
+			"value": "Action"
+		},
+		{
+			"key": "director",
+			"value": "director"
+		},
+		{
+			"key": "rate",
+			"value": "rate"
+		}
+	]
+}
