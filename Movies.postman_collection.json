@@ -135,9 +135,9 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{urlBase}}/movies/:id",
+					"raw": "{{UrlBase}}/movies/:id",
 					"host": [
-						"{{urlBase}}"
+						"{{UrlBase}}"
 					],
 					"path": [
 						"movies",
